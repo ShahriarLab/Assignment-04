@@ -49,3 +49,10 @@ function updateStatus(id, newStatus) {
     job.status = newStatus;
     renderJobs();
 }
+
+
+// ...................Function to delete job.....................
+function deleteJob(id) {
+    jobs = jobs.filter(j => j.id !== id);
+    renderJobs();
+}
