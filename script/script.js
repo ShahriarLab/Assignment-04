@@ -56,3 +56,22 @@ function deleteJob(id) {
     jobs = jobs.filter(j => j.id !== id);
     renderJobs();
 }
+//.............. Function to update Dashboard counts...............
+function updateDashboard() {
+    document.getElementById('total-count').innerText = jobs.length;
+    document.getElementById('interview-count').innerText = jobs.filter(j => j.status === 'interview').length;
+    document.getElementById('rejected-count').innerText = jobs.filter(j => j.status === 'rejected').length;
+}
+
+// ...............Function to switch tabs.............
+
+function filterJobs(tab) {
+    currentTab = tab;
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.innerText.toLowerCase() === tab);
+    });
+    renderJobs();
+}
+
+
+renderJobs();
