@@ -10,7 +10,7 @@ let jobs = [
 ];
 
 let currentTab = 'all';
-
+// ..................Function to render cards...................
 function renderJobs() {
     const container = document.getElementById('job-list');
     const noJobs = document.getElementById('no-jobs');
@@ -42,4 +42,10 @@ function renderJobs() {
     updateDashboard();
 }
 
+//..................... Function to update status (Interview/Rejected)...................
 
+function updateStatus(id, newStatus) {
+    const job = jobs.find(j => j.id === id);
+    job.status = newStatus;
+    renderJobs();
+}
