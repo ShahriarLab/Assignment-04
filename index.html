@@ -5,23 +5,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Tracker</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <header class="dashboard">
         <h2>Job Application Tracker</h2>
         <div class="stats">
-            <div class="stat-card">Total <br> <span id="total-count">  <h2> 8 </h2> </span></div>
-            <div class="stat-card">Interview <br> <span id="interview-count"><h3>0</h3></span></div>
-            <div class="stat-card">Rejected <br> <span id="rejected-count"><h3>0</h3></span></div>
+            <div class="stat-card">Total <br> <span id="total-count">
+                    <h2> 8 </h2>
+                </span></div>
+            <div class="stat-card">Interview <br> <span id="interview-count">
+                    <h3>0</h3>
+                </span></div>
+            <div class="stat-card">Rejected <br> <span id="rejected-count">
+                    <h3>0</h3>
+                </span></div>
         </div>
     </header>
 
-     <section class="filter-section">
+    <section class="filter-section">
         <div class="tab-header">
-       <h3>Available Jobs   </h3>
-       <h5><span  id="tab-job-count">8 Jobs </span></h5>
-            
+            <h3>Available Jobs </h3>
+            <h5><span id="tab-job-count">8 Jobs </span></h5>
+
         </div>
         <div class="tabs">
             <button class="tab-btn active" onclick="filterJobs('all')">All</button>
@@ -31,13 +38,15 @@
     </section>
 
     <main id="job-list" class="job-grid">
-        </main>
+    </main>
 
     <div id="no-jobs" class="hidden">
         <img src="jobs.png" alt="No Jobs">
         <h4>No Jobs Available</h4>
         <p>Check back soon for new job opportunities</p>
     </div>
+    <script src="script/script.js"></script>
+
 
 </body>
 
