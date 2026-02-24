@@ -11,3 +11,35 @@ let jobs = [
 
 let currentTab = 'all';
 
+function renderJobs() {
+    const container = document.getElementById('job-list');
+    const noJobs = document.getElementById('no-jobs');
+    const filtered = currentTab === 'all' ? jobs : jobs.filter(j => j.status === currentTab);
+    
+    document.getElementById('tab-job-count').innerText = `${filtered.length} Jobs`;
+    container.innerHTML = "";
+
+    if (filtered.length === 0) {
+        noJobs.classList.remove('hidden');
+    } else {
+        noJobs.classList.add('hidden');
+        filtered.forEach(job => {
+            const card = document.createElement('div');
+            card.className = `job-card ${job.status}`;
+            card.innerHTML = `
+                <h4>${job.position}</h4>
+                <p><strong>${job.companyName}</strong> - ${job.location}</p>
+                <p>${job.type} | ${job.salary}</p>
+                <div class="btn-group">
+                    <button class="btn-int" onclick="updateStatus(${job.id}, 'interview')">Interview</button>
+                    <button class="btn-rej" onclick="updateStatus(${job.id}, 'rejected')">Rejected</button>
+                </div>
+                <button class="btn-del" onclick="deleteJob(${job.id})">Delete Card</button>
+            `;
+            container.appendChild(card);
+        });
+    }
+    updateDashboard();
+}
+
+
